@@ -14,8 +14,16 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="About" component={About} />
+          <Stack.Screen
+            options={{ title: " کاربران" }}
+            name="Home"
+            component={Home}
+          />
+          <Stack.Screen
+            name="About"
+            component={About}
+            options={{ title: "درباره کارشناسان" }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

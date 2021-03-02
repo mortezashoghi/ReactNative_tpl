@@ -56,6 +56,7 @@ const About = (props) => {
         بارگذاری
       </Button>
       <FlatList
+        style={styles.flatlistStyle}
         data={props.users}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
@@ -77,6 +78,9 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 18,
+  },
+  flatlistStyle: {
+    width: "100%",
   },
 });
 
