@@ -7,12 +7,24 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import { Provider } from "react-redux";
 import { configureStore } from "./redux/store";
+import { Appbar } from "react-native-paper";
+
+import { createDrawerNavigator } from "@react-navigation/drawer";
+
 const store = configureStore();
 const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
+
 export default function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
+        {/* <Appbar.Header>
+          <Appbar.BackAction />
+          <Appbar.Content title="Title" subtitle="Subtitle" />
+          <Appbar.Action icon="magnify" />
+          <Appbar.Action icon="dots-vertical" />
+        </Appbar.Header> */}
         <Stack.Navigator initialRouteName="Home">
           <Stack.Screen
             options={{ title: " کاربران" }}
@@ -25,6 +37,10 @@ export default function App() {
             options={{ title: "درباره کارشناسان" }}
           />
         </Stack.Navigator>
+        {/* <Drawer.Navigator>
+          <Drawer.Screen name="Home" component={Home} />
+          <Drawer.Screen name="Contact" component={About} />
+        </Drawer.Navigator> */}
       </NavigationContainer>
     </Provider>
   );
