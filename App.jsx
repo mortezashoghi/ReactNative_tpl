@@ -19,12 +19,6 @@ export default function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        {/* <Appbar.Header>
-          <Appbar.BackAction />
-          <Appbar.Content title="Title" subtitle="Subtitle" />
-          <Appbar.Action icon="magnify" />
-          <Appbar.Action icon="dots-vertical" />
-        </Appbar.Header> */}
         <Stack.Navigator initialRouteName="Home">
           <Stack.Screen
             options={{ title: " کاربران" }}
@@ -37,10 +31,6 @@ export default function App() {
             options={{ title: "درباره کارشناسان" }}
           />
         </Stack.Navigator>
-        {/* <Drawer.Navigator>
-          <Drawer.Screen name="Home" component={Home} />
-          <Drawer.Screen name="Contact" component={About} />
-        </Drawer.Navigator> */}
       </NavigationContainer>
     </Provider>
   );
