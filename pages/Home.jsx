@@ -12,6 +12,8 @@ import {
 import { TextInput } from "react-native-paper";
 import { bold } from "ansi-colors";
 import Chart from "./Chart";
+import {connect} from 'react-redux';
+import {registerNewUser} from '../redux'
 
 const Home = (props) => {
   const [mobile, setMobile] = React.useState("");
@@ -70,12 +72,20 @@ const Home = (props) => {
             onValueChange={toggleSwitch}
             value={isEnabled}
           />
+           <Switch
+            trackColor={{ false: "#767577", true: "#81b0ff" }}
+           
+            ios_backgroundColor="#3e3e3e"
+           
+            value={props.result}
+          />
         </View>
         <Button
           style={{ height: 40, margin: 10 }}
           title="ثبت نام"
           color="#841584"
           accessibilityLabel="ثبت نام"
+          onPress={()=>props.register({mobile:mobile,email:email,agree:isEnabled})}
         />
       </View>
       <Chart />
@@ -111,5 +121,16 @@ const styles = StyleSheet.create({
     padding: 5,
   },
 });
+const mapStateToProps=(state)=>{
+  return{
+    result:state.regReducer.result
+  }
+}
+const mapDispatchToProps=(dispatch)=>{
 
-export default Home;
+  return {
+    register:info=>dispatch(registerNewUser(info))
+  }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Home);
+
