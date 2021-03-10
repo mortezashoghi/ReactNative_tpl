@@ -2,7 +2,7 @@ import { GET_USERS_LIST, GET_USERS_ID } from "./AbouteActTypes";
 
 const AbinitialState = {
     data: [{
-        id: "0",
+        id: "7",
         title: "سعید بایرامپور",
     }, ],
 };

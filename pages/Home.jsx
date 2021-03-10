@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -6,14 +6,14 @@ import {
   TouchableHighlight,
   Linking,
   navigation,
-  Button,
   Switch,
 } from "react-native";
+import { Button } from "react-native-paper";
 import { TextInput } from "react-native-paper";
 import { bold } from "ansi-colors";
 import Chart from "./Chart";
-import {connect} from 'react-redux';
-import {registerNewUser} from '../redux'
+import { connect } from "react-redux";
+import { registerNewUser } from "../redux";
 
 const Home = (props) => {
   const [mobile, setMobile] = React.useState("");
@@ -29,7 +29,7 @@ const Home = (props) => {
           onPress={() => {}}
         >
           <View style={styles.button}>
-            <Text style={styles.textstyle}>اطلاعات</Text>
+            <Text style={styles.textstyle}>کاربران</Text>
           </View>
         </TouchableHighlight>
         <TouchableHighlight
@@ -72,21 +72,24 @@ const Home = (props) => {
             onValueChange={toggleSwitch}
             value={isEnabled}
           />
-           <Switch
+          <Switch
             trackColor={{ false: "#767577", true: "#81b0ff" }}
-           
             ios_backgroundColor="#3e3e3e"
-           
             value={props.result}
           />
         </View>
         <Button
-          style={{ height: 40, margin: 10 }}
-          title="ثبت نام"
+          icon=""
+          mode="contained"
+          style={(styles.btn, { height: 40, margin: 5 })}
           color="#841584"
-          accessibilityLabel="ثبت نام"
-          onPress={()=>props.register({mobile:mobile,email:email,agree:isEnabled})}
-        />
+          // accessibilityLabel="ثبت نام"
+          onPress={() =>
+            props.register({ mobile: mobile, email: email, agree: isEnabled })
+          }
+        >
+          ثبت نام
+        </Button>
       </View>
       <Chart />
     </View>
@@ -98,11 +101,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+    flex: 1,
   },
   innerdivs: {
     flex: 1,
     borderRadius: 5,
-    height: 200,
+    height: 100,
     padding: 10,
     margin: 5,
     alignItems: "center",
@@ -120,17 +124,16 @@ const styles = StyleSheet.create({
     fontSize: 16,
     padding: 5,
   },
+  btn: { flexDirection: "row" },
 });
-const mapStateToProps=(state)=>{
-  return{
-    result:state.regReducer.result
-  }
-}
-const mapDispatchToProps=(dispatch)=>{
-
+const mapStateToProps = (state) => {
   return {
-    register:info=>dispatch(registerNewUser(info))
-  }
-}
-export default connect(mapStateToProps,mapDispatchToProps)(Home);
-
+    result: state.regReducer.result,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    register: (info) => dispatch(registerNewUser(info)),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
