@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
   innerdivs: {
     flex: 1,
     borderRadius: 5,
-    height: 100,
+    height: 130,
     padding: 10,
     margin: 5,
     alignItems: "center",
