@@ -1,0 +1,6 @@
+export const REGISTER_NEW_USER = "REGISTER_NEW_USER";
+export const REMOVE_USER = "REMOVE_USER";
+export const GET_ALL_USERS = "GET_ALL_USERS";
+export const UPDATE_USER_INFO = "UPDATE_USER_INFO";
+export const FORGET_PASSWORD = "FORGET_PASSWORD";
+export const GET_USER = "GET_USER";
