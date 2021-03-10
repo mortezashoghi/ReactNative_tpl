@@ -56,6 +56,7 @@ const About = (props) => {
         بارگذاری
       </Button>
       <FlatList
+        key={(item) => item.id}
         style={styles.flatlistStyle}
         data={props.users}
         renderItem={renderItem}

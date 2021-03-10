@@ -22,6 +22,10 @@ const AboutReducer = (state = AbinitialState, action) => {
                         id: "2",
                         title: "haghighi",
                     },
+                    {
+                        id: "3",
+                        title: "Mohandes Salehlou",
+                    },
                 ],
             };
 
