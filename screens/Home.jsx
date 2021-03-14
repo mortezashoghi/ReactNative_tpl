@@ -17,6 +17,9 @@ import { connect } from "react-redux";
 import { registerNewUser } from "../redux";
 import { Directions } from "react-native-gesture-handler";
 import Production from "./production";
+import { NavigationContainer } from "@react-navigation/native";
+// import Header from "./Header";
+
 const Home = (props) => {
   const [mobile, setMobile] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -28,6 +31,7 @@ const Home = (props) => {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.container}
     >
+      {/* <Header /> */}
       <View style={styles.container}>
         <View style={{ flex: 1, backgroundColor: "powderblue" }}>
           <View
@@ -41,7 +45,7 @@ const Home = (props) => {
                 props.navigation.navigate("About");
               }}
             >
-              <Text style={styles.textstyle}>سان شاین</Text>
+              <Text style={styles.textstyle}>مشتریان</Text>
             </TouchableHighlight>
             <TouchableHighlight
               style={[styles.innerdivs, { backgroundColor: "#00FFFF" }]}
@@ -97,7 +101,11 @@ const Home = (props) => {
             style={(styles.btn, { height: 40, margin: 5 })}
             color="#841584"
             onPress={() =>
-              props.register({ mobile: mobile, email: email, agree: isEnabled })
+              props.register({
+                mobile: mobile,
+                email: email,
+                agree: isEnabled,
+              })
             }
           >
             ثبت نام
@@ -135,6 +143,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     padding: 2,
   },
+
   btn: { flexDirection: "row" },
 });
 const mapStateToProps = (state) => {
